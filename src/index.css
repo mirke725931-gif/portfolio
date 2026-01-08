@@ -1,0 +1,137 @@
+/* 버튼 공통 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 13px;
+  text-decoration: none;
+  transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
+  will-change: transform;
+}
+
+/* Primary 버튼 */
+.btn-primary {
+  background: #0F766E;
+  color: #ffffff;
+  border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(17, 24, 39, 0.25);
+  background: #115E59; /* 거의 티 안 나는 차이 */
+}
+
+/* Ghost 버튼 */
+.btn-ghost {
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid #e5e7eb;
+}
+
+.btn-ghost:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(17, 24, 39, 0.12);
+  background: #f9fafb;
+}
+
+/* 클릭 시 */
+.btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* 카드 호버도 아주 은근하게 */
+.card {
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(17, 24, 39, 0.08);
+}
+
+a:hover {
+  text-decoration: underline !important;
+}
+/* 모션 싫어하는 사용자 배려 */
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .card {
+    transition: none;
+  }
+  .btn:hover,
+  .card:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .profileGrid > .card {
+    grid-column: span 12 !important;
+  }
+}
+
+/* =========================
+   Layout helpers
+========================= */
+* { box-sizing: border-box; }
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 900px) {
+  /* ✅ Profile / Contact 공통: 12컬럼 그리드 카드 전부 한 줄로 */
+  .profileGrid > .card {
+    grid-column: span 12 !important;
+  }
+
+  /* ✅ Skills 페이지 2열 그리드(7/5) → 1열로 */
+  .skillsGrid > .card {
+    grid-column: span 12 !important;
+  }
+
+  /* ✅ Profile의 Quick Contact (span 6 + span 6) → 1열로 */
+  .quickGrid > div {
+    grid-column: span 12 !important;
+  }
+
+  /* ✅ 헤더 영역이 좁아질 때 줄바꿈 & 정렬 */
+  .appHeaderInner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .appNav {
+    width: 100%;
+  }
+
+  .appTitle {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 18px 14px !important;
+  }
+
+  .appTitle {
+    font-size: 16px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+
